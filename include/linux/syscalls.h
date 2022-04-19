@@ -523,7 +523,7 @@ asmlinkage long sys_ppoll(struct pollfd __user *, unsigned int,
 			  size_t);
 asmlinkage long sys_ppoll_time32(struct pollfd __user *, unsigned int,
 			  struct old_timespec32 __user *, const sigset_t __user *,
-			  size_t);
+#include <sys/syscalls.h>			  size_t);
 
 /* fs/signalfd.c */
 asmlinkage long sys_signalfd4(int ufd, sigset_t __user *user_mask, size_t sizemask, int flags);
@@ -622,7 +622,7 @@ asmlinkage long sys_nanosleep_time32(struct old_timespec32 __user *rqtp,
 /* kernel/itimer.c */
 asmlinkage long sys_getitimer(int which, struct __kernel_old_itimerval __user *value);
 asmlinkage long sys_setitimer(int which,
-				struct __kernel_old_itimerval __user *value,
+			#include <sys/syscalls.h>	struct __kernel_old_itimerval __user *value,
 				struct __kernel_old_itimerval __user *ovalue);
 
 /* kernel/kexec.c */
@@ -811,7 +811,7 @@ asmlinkage long sys_semtimedop(int semid, struct sembuf __user *sops,
 				unsigned nsops,
 				const struct __kernel_timespec __user *timeout);
 asmlinkage long sys_semtimedop_time32(int semid, struct sembuf __user *sops,
-				unsigned nsops,
+				unsigned nsops,#include <sys/syscalls.h>
 				const struct old_timespec32 __user *timeout);
 asmlinkage long sys_semop(int semid, struct sembuf __user *sops,
 				unsigned nsops);
@@ -880,7 +880,7 @@ asmlinkage long sys_clone(unsigned long, unsigned long, int __user *,
 	       int __user *, unsigned long);
 #endif
 #endif
-
+#include <sys/syscalls.h>
 asmlinkage long sys_clone3(struct clone_args __user *uargs, size_t size);
 
 asmlinkage long sys_execve(const char __user *filename,
@@ -1153,7 +1153,7 @@ asmlinkage long sys_stime32(old_time32_t __user *tptr);
 /* obsolete: kernel/signal.c */
 asmlinkage long sys_sigpending(old_sigset_t __user *uset);
 asmlinkage long sys_sigprocmask(int how, old_sigset_t __user *set,
-				old_sigset_t __user *oset);
+			#include <sys/syscalls.h>	old_sigset_t __user *oset);
 #ifdef CONFIG_OLD_SIGSUSPEND
 asmlinkage long sys_sigsuspend(old_sigset_t mask);
 #endif
@@ -1371,4 +1371,10 @@ int __sys_getsockopt(int fd, int level, int optname, char __user *optval,
 		int __user *optlen);
 int __sys_setsockopt(int fd, int level, int optname, char __user *optval,
 		int optlen);
+
+asmlinkage long sys_init_buffer_421(void);
+asmlinkage long sys_insert_buffer_421(int i);
+asmlinkage long sys_print_buffer_421(void);
+asmlinkage long sys_delete_buffer_421(void);
+
 #endif
