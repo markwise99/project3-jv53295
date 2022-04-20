@@ -1,9 +1,14 @@
 **NOTE TO GRADER**
+
 To save you time compiling kernels, I can tell you that none of my kernel-space implementations will work properly.
+
 I wasn't sure if partial credit is available, so I decided it was best to leave all my files in
+
 *It is probably not worth your time trying to run my kernel-space implementations*
 
+
 **How to compile and run buffer_user.c**
+
 This will compile buffer_user.c and it's test file, test_user.c
 Execute the following commands:
 1. *make*
@@ -17,6 +22,7 @@ To clean up files:
 1. *make clean*
 
 **buffer_user.c**
+
 I wrote the functions in the following order
 1. init_buffer_421
 2. delete_buffer_421
@@ -40,6 +46,7 @@ to write - mostly because I understood how to make a "firstNode" and I had
 figured out the global buffer.
 
 **test_user.c**
+
 This file for part 1 is relatively simple. The main function simply calls
 all the functions in buffer_user.c it needs to in order to test every edge case.
 buffer_user.c should print errors, but never crash.
