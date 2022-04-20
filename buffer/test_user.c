@@ -7,6 +7,7 @@
 #include <stdlib.h> // rand
 
 // Inserts random numbers into buffer
+// For testing, prints out the int it inserts
 // Iterations is the number of inserts
 // Min and max set the rand range
 void insertRand(int min, int max, int iterations){
@@ -18,6 +19,8 @@ void insertRand(int min, int max, int iterations){
    }
 }
 
+// Tests every edge case.
+// Program should print errors, but never crash
 int main(){
    delete_buffer_421();
    print_buffer_421();

@@ -1,7 +1,7 @@
-// File: test_user_sem.c
+// File: test_mon.c
 // Author: Mark Wise
 // Description: Test file
-#include "buffer_sem.h"
+#include "buffer_mon.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
